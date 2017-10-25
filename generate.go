@@ -46,7 +46,7 @@ func main() {
 			panic(err)
 		}
 
-		cmd := exec.Command("swagger", "generate", "client", "/f", site.URL, "/t", site.Name, "/name", site.Name)
+		cmd := exec.Command("swagger-codegen", "generate", "-i", site.URL, "-l", "go", "-o", site.Name)
 		var out bytes.Buffer
 		cmd.Stdout = &out
 		cmd.Stderr = &out
